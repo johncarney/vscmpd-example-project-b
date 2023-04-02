@@ -1,0 +1,10 @@
+{
+  "name":            "project-b",
+  "service":         "project-b",
+  "workspaceFolder": "/vscmpd-example-project-b",
+
+  "dockerComposeFile": [
+    "../../docker-compose.yml",
+    "docker-compose.yml"
+  ]
+}

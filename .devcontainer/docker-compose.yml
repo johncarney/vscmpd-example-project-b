@@ -1,0 +1,23 @@
+---
+version: "3"
+
+services:
+  project-b:
+    image: project-b:ruby-3.2
+    build:
+      context:    ./vscmpd-example-project-b
+      dockerfile: .devcontainer/Dockerfile
+      args:
+        BASE_IMAGE:   ruby:3.2
+        PROJECT_NAME: vscmpd-example-project-b
+
+    depends_on:
+      - postgres
+
+    command: /bin/sh -c "while sleep 1000; do :; done"
+
+    volumes:
+      - ./vscmpd-example-project-b:/vscmpd-example-project-b
+      - ./common:/common
+      - ~/.ssh:/root/.ssh
+      - ./common/vscode-server/extensions:/root/.vscode-server
